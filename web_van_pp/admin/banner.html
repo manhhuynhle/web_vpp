@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Banner - Học Tốt</title>
+    <link rel="stylesheet" href="../assets/css/banner.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <h1>Quản lý Banner</h1>
+      <p>Thêm và quản lý banner trang chủ Học Tốt.</p>
+
+      <form id="banner-form">
+        <label for="banner-name">Tên banner</label>
+        <input
+          type="text"
+          id="banner-name"
+          placeholder="Ví dụ: Khuyến mãi mùa tựu trường"
+          required
+        />
+
+        <label for="banner-image">Chọn ảnh banner</label>
+        <input
+          type="file"
+          id="banner-image"
+          accept="image/jpeg,image/png,image/webp"
+          required
+        />
+
+        <img id="image-preview" alt="Ảnh banner xem trước" hidden />
+
+        <button type="submit">Thêm banner</button>
+      </form>
+
+      <h2>Danh sách banner</h2>
+      <div id="banner-list"></div>
+
+      <p>
+        <a href="../index.php">Quay lại trang chủ</a>
+      </p>
+    </div>
+
+    <script src="../assets/js/banner.js"></script>
+  </body>
+</html>
