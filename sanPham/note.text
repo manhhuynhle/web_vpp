@@ -1,0 +1,101 @@
+create database HOC_TOT
+USE HOC_TOT
+
+CREATE TABLE san_pham (
+    ma_san_pham INT AUTO_INCREMENT PRIMARY KEY,
+    ten_san_pham VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE,
+    ma_danh_muc INT,
+    thuong_hieu VARCHAR(100) DEFAULT 'Khác',
+    ma_san_xuat VARCHAR(50),
+    mo_ta TEXT,
+    gia_goc DECIMAL(12,2) NOT NULL DEFAULT 0,
+    gia_ban DECIMAL(12,2) NOT NULL DEFAULT 0,
+    so_luong_ton INT NOT NULL DEFAULT 0,
+    hinh_anh VARCHAR(255),
+    trang_thai TINYINT NOT NULL DEFAULT 1,
+    noi_bat TINYINT NOT NULL DEFAULT 0,
+    ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ngay_cap_nhat DATETIME DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO san_pham
+(ten_san_pham, slug, ma_danh_muc, thuong_hieu,
+ ma_san_xuat, mo_ta, gia_goc, gia_ban,
+ so_luong_ton, hinh_anh, trang_thai, noi_bat)
+VALUES
+(
+    'Bút Gel Thiên Long GEL-07',
+    'but-gel-thien-long-gel-07',
+    1, 'Thiên Long', 'GEL-07',
+    'Bút gel phục vụ nhu cầu học tập và văn phòng.',
+    8300, 6200, 100,
+    'images/but-gel-gel-07.jpg', 1, 1
+),
+(
+    'Bút lông bảng Thiên Long WB-03',
+    'but-long-bang-thien-long-wb-03',
+    1, 'Thiên Long', 'WB-03',
+    'Bút viết bảng phục vụ giảng dạy và học tập.',
+    10500, 8400, 80,
+    'images/but-long-bang-wb-03.jpg', 1, 0
+),
+(
+    'Sổ lò xo kẻ ngang 120 trang A5',
+    'so-lo-xo-ke-ngang-120-trang-a5',
+    2, 'Thiên Long', NULL,
+    'Sổ ghi chép dành cho học sinh, sinh viên và nhân viên văn phòng.',
+    35000, 31500, 50,
+    'images/so-lo-xo-a5.jpg', 1, 1
+),
+(
+    'Bìa hồ sơ nhiều lá Thiên Long',
+    'bia-ho-so-nhieu-la-thien-long',
+    3, 'Thiên Long', NULL,
+    'Bìa lưu trữ và sắp xếp tài liệu.',
+    55400, 49860, 40,
+    'images/bia-ho-so.jpg', 1, 0
+),
+(
+    'Combo 3 dao rọc giấy Thiên Long',
+    'combo-3-dao-roc-giay-thien-long',
+    4, 'Thiên Long', NULL,
+    'Bộ dao rọc giấy sử dụng trong học tập và văn phòng.',
+    51900, 46710, 30,
+    'images/dao-roc-giay.jpg', 1, 0
+),
+(
+    'Combo 2 kéo văn phòng Thiên Long',
+    'combo-2-keo-van-phong-thien-long',
+    4, 'Thiên Long', NULL,
+    'Bộ kéo văn phòng có tay cầm tiện dụng.',
+    80000, 72000, 25,
+    'images/keo-van-phong.jpg', 1, 0
+),
+(
+    'Bút dạ quang Hi!Line Neon HL-029',
+    'but-da-quang-hiline-neon-hl-029',
+    1, 'Thiên Long', 'HL-029',
+    'Bút dạ quang đánh dấu nội dung quan trọng.',
+    17000, 12750, 60,
+    'images/but-da-quang-hl029.jpg', 1, 1
+),
+(
+    'Băng xóa kéo Thiên Long CT-012/PKM',
+    'bang-xoa-keo-thien-long-ct-012-pkm',
+    1, 'Thiên Long', 'CT-012/PKM',
+    'Băng xóa kéo dùng để chỉnh sửa nội dung viết.',
+    27000, 20300, 45,
+    'images/bang-xoa-keo.jpg', 1, 0
+);
+
+
+SELECT ma_san_pham, ten_san_pham, gia_goc,
+       gia_ban, hinh_anh
+FROM san_pham
+WHERE trang_thai = 1
+  AND noi_bat = 1
+ORDER BY ma_san_pham DESC;
+

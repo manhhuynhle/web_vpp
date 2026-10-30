@@ -1,0 +1,287 @@
+/* =====================================================
+   CSS TRANG ĐĂNG NHẬP / ĐĂNG KÝ
+   Không dùng flex trên body để tránh đẩy header và footer
+   ra giữa màn hình.
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Roboto", Arial, sans-serif;
+  background: #f3f7fc;
+}
+
+/* Nền trang trí (nếu được dùng ở trang đăng ký) */
+.background-shapes {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  display: block;
+  background: rgba(21, 101, 192, 0.08);
+  border-radius: 15px;
+  transform: rotate(35deg);
+}
+
+.shape-1 {
+  width: 30px;
+  height: 30px;
+  top: 25%;
+  left: 4%;
+}
+.shape-2 {
+  width: 100px;
+  height: 100px;
+  top: 55%;
+  left: 12%;
+}
+.shape-3 {
+  width: 75px;
+  height: 75px;
+  top: 60%;
+  left: 78%;
+}
+.shape-4 {
+  width: 190px;
+  height: 190px;
+  top: 10%;
+  right: -95px;
+  border-radius: 55px;
+}
+.shape-5 {
+  width: 25px;
+  height: 25px;
+  top: 80%;
+  right: 20%;
+  border-radius: 4px;
+}
+
+/* Khung nội dung: nằm trong khoảng giữa header và footer */
+.auth-container,
+.register-container {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 32px, 680px);
+  margin: 36px auto;
+  padding: 32px;
+  background: #1565c0;
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(20, 70, 130, 0.16);
+}
+
+.auth-container {
+  max-width: 440px;
+}
+
+.register-container {
+  max-width: 500px;
+}
+
+.auth-card,
+.register-form {
+  width: 100%;
+  min-width: 0;
+}
+
+.auth-card h1,
+.register-form h1 {
+  margin: 0 0 26px;
+  color: #fff;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 800;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Các trường đăng nhập */
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.form label,
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #eaf2fc;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.form label span,
+.form-group label span {
+  color: #ff5364;
+}
+
+.form input,
+.form-group input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form input::placeholder,
+.form-group input::placeholder {
+  color: #c4d9f1;
+  opacity: 1;
+}
+
+.form input:focus,
+.form-group input:focus {
+  border-color: #ffe34f;
+  box-shadow: 0 0 0 3px rgba(255, 227, 79, 0.16);
+}
+
+/* Biểu mẫu đăng ký */
+.customer-title {
+  margin: 0 0 18px;
+  color: #e3eefa;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Nút gửi biểu mẫu */
+.register-button,
+.submit-button {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 26px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #ffe34f;
+  color: #202020;
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 700;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.register-button:hover,
+.submit-button:hover {
+  background: #ffda26;
+}
+
+.register-button:active,
+.submit-button:active {
+  transform: scale(0.99);
+}
+
+/* Liên kết bên dưới biểu mẫu */
+.login-text,
+.switch-text {
+  margin: 22px 0 0;
+  color: #e2eaf4;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.login-text a,
+.switch-text a,
+.forgot-password a {
+  color: #ffe34f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-text a:hover,
+.switch-text a:hover,
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.forgot-password {
+  margin: -4px 0 0;
+  color: #e2eaf4;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* Tablet và điện thoại */
+@media (max-width: 600px) {
+  .auth-container,
+  .register-container {
+    width: calc(100% - 24px);
+    margin: 22px auto;
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
+  .auth-card h1,
+  .register-form h1 {
+    margin-bottom: 22px;
+    font-size: 24px;
+  }
+
+  .input-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .register-button,
+  .submit-button {
+    margin-top: 22px;
+  }
+}
